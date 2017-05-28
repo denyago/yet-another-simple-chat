@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/denyago/yet-another-simple-chat.svg?branch=master)](https://travis-ci.org/denyago/yet-another-simple-chat)
+
 # Yet Another Simple Chat
 Yet Another Simple Chat - a chat server written in Scala
 

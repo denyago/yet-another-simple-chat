@@ -8,6 +8,7 @@ lazy val root = (project in file(".")).
       version      := "0.0.1-ALPHA"
     )),
     name := "YASC",
+    resolvers += Resolver.jcenterRepo,
     libraryDependencies ++= Seq(
       "com.typesafe.akka" % "akka-http_2.12" % "10.0.7",
 
@@ -15,7 +16,8 @@ lazy val root = (project in file(".")).
       "ch.qos.logback" % "logback-classic" % "1.1.7",
 
       "org.scalatest" %% "scalatest" % "3.0.1" % Test,
-      "org.scalaj" %% "scalaj-http" % "2.3.0" % Test
+      "org.scalaj" %% "scalaj-http" % "2.3.0" % Test,
+      "com.github.andyglow" %% "websocket-scala-client" % "0.2.0" % Test
     ),
     scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-feature", "-language:postfixOps")
   )

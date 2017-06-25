@@ -1,4 +1,4 @@
-package name.denyago.yasc.httpapi
+package name.denyago.yasc.integration.httpapi
 
 import org.scalatest.FunSpec
 

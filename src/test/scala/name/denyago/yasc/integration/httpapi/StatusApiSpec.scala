@@ -1,24 +1,27 @@
-package name.denyago.yasc.httpapi
+package name.denyago.yasc.integration.httpapi
 
 import name.denyago.yasc.Main
 import org.scalatest.concurrent.Eventually
 import org.scalatest.time.{Millis, Seconds, Span}
-import org.scalatest.{BeforeAndAfterEach, FunSpec, Matchers}
+import org.scalatest.{Exceptional, FunSpec, Matchers, Outcome}
 
+import scala.util.Try
 import scalaj.http.Http
 
-class StatusApiSpec extends FunSpec with Matchers with Eventually with BeforeAndAfterEach {
-  var app: Main = null
-
-  override def beforeEach(): Unit = {
-    app = new Main(Array.empty[String])
+class StatusApiSpec extends FunSpec with Matchers with Eventually {
+  override def withFixture(test: NoArgTest): Outcome = {
+    val app = new Main(Array.empty[String])
     app.run()
-    super.beforeEach()
-  }
 
-  override def afterEach(): Unit = {
+    val outcome = Try { super.withFixture(test) }.recover {
+      case t: Throwable => Exceptional(t)
+    }.getOrElse(
+      Exceptional(new RuntimeException("No test outcome present"))
+    )
+
     app.stop()
-    super.afterEach()
+
+    outcome
   }
 
   describe("Status HTTP API") {

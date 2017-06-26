@@ -2,12 +2,11 @@ package name.denyago.yasc
 
 import akka.actor.{ActorSystem, Props}
 import akka.stream.ActorMaterializer
-
-import log.{ Helper => LogHelper }
-import scala.concurrent.{Await, TimeoutException}
-import scala.util.Try
+import name.denyago.yasc.log.{Helper => LogHelper}
 
 import scala.concurrent.duration._
+import scala.concurrent.{Await, TimeoutException}
+import scala.util.Try
 
 /**
   * Main class to launch the chat server application.
@@ -16,8 +15,6 @@ class Main(args: Array[String]) extends LogHelper {
 
   implicit val system = ActorSystem("yasc-server")
   implicit val materializer = ActorMaterializer()
-
-  val any = List(1, true, "three")
 
   def run(): Unit = {
     log.info(s"Statring the App: Starting the Chat Server...")

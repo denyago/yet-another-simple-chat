@@ -16,6 +16,8 @@ The purpose is learning:
 
 * [X] Continuous delivery: Tests -> Static Checks -> CI -> Deploy
 * [ ] Implement HTTP API
+  * [ ] Make tests stable (50% failure rate now :unamused:)
+  * [ ] Implement simplest authentication
 * [ ] Implement Web Client
 * [ ] Implement Mobile Client
 
@@ -26,3 +28,11 @@ As simple as `sbt coverage test`.
 # Contributing
 
 Yes, please, you can do it :)
+
+# Links
+
+I've used ideas and some code from following sources.
+Thank you, guys!
+
+* https://blog.scalac.io/2015/07/30/websockets-server-with-akka-http.html
+* https://markatta.com/codemonkey/blog/2016/04/18/chat-with-akka-http-websockets/
